@@ -14,8 +14,7 @@ const PORT = process.env.PORT;
 require("express-async-errors");
 
 // Connect to DB:
-const { dbConnection } = require("./src/configs/dbConnection");
-dbConnection();
+require("./src/configs/dbConnection");
 
 // Middlewares:
 app.use(express.json());
