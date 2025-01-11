@@ -16,6 +16,9 @@ require("express-async-errors");
 // Connect to DB:
 require("./src/configs/dbConnection");
 
+// Searching&Sorting&Pagination:
+app.use(require("./src/middlewares/queryHandler"));
+
 // Middlewares:
 app.use(express.json());
 
