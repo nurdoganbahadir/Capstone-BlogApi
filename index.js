@@ -17,6 +17,9 @@ require("express-async-errors");
 const { dbConnection } = require("./src/configs/dbConnection");
 dbConnection();
 
+// Middlewares:
+app.use(express.json());
+
 // NOT FOUND
 app.all("*", (req, res) => {
   res.status(404).send({
@@ -24,6 +27,9 @@ app.all("*", (req, res) => {
     message: "Route is not found!",
   });
 });
+
+// errorHandler added:
+app.use(require("./src/middlewares/errorHandler"));
 
 // RUN SERVER
 app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}`));
