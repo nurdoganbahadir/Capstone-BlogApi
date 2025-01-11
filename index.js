@@ -13,10 +13,9 @@ const PORT = process.env.PORT;
 //asyncErrors to errorHandler
 require("express-async-errors");
 
-
-
-
-
+// Connect to DB:
+const { dbConnection } = require("./src/configs/dbConnection");
+dbConnection();
 
 // NOT FOUND
 app.all("*", (req, res) => {
