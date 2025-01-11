@@ -1,6 +1,6 @@
 {
   "title": "Capstone-BlogApi",
-  "name": "capstoneBlogApi",
+  "name": "capstoneblogapi",
   "version": "1.0.0",
   "description": "Blog Api System",
   "main": "index.js",
