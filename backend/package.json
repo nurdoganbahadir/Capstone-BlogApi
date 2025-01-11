@@ -1,0 +1,21 @@
+{
+  "title": "Capstone-BlogApi",
+  "name": "capstoneblogapi",
+  "version": "1.0.0",
+  "description": "Blog Api System",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "DEBUG=* nodemon"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-async-errors": "^3.1.1",
+    "fullstack-project-capstoneblogapi": "file:..",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}
