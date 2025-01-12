@@ -1,4 +1,7 @@
 "use strict";
+// -------------------------
+// CAPSTONE BLOG API
+// -------------------------
 
 const { mongoose } = require("../configs/dbConnection");
 const passwordEncrypt = require("../helpers/passwordEncrypt");
