@@ -22,6 +22,23 @@ app.use(require("./src/middlewares/queryHandler"));
 // Middlewares:
 app.use(express.json());
 
+// Home Paths:
+app.all("/", (req, res) => {
+  res.send({
+    error: false,
+    message: "Welcome to Capstone Blog Api",
+    documents: {
+      swagger: "/documents/swagger",
+      redoc: "/documents/redoc",
+      json: "/documents/json",
+    },
+    user: req.user,
+  });
+});
+
+// Routes
+app.use(require("./src/routes"));
+
 // NOT FOUND
 app.all("*", (req, res) => {
   res.status(404).send({

@@ -1,4 +1,7 @@
 "use strict";
+// -------------------------
+// CAPSTONE BLOG API
+// -------------------------
 
 const User = require("../models/user");
 
@@ -13,5 +16,5 @@ module.exports = {
     });
   },
 
-  
+
 };
