@@ -9,7 +9,7 @@ const CategorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      trim: ture,
+      trim: true,
       unique: true,
       required: true,
     },

@@ -13,4 +13,6 @@ router.use("/users", require("./user"));
 
 router.use("/tokens", require("./token"));
 
+router.use("/categories", require("./category"));
+
 module.exports = router;
