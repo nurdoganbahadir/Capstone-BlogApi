@@ -38,15 +38,15 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
     isActive: {
-      type: boolean,
+      type: Boolean,
       default: true,
     },
     isStaff: {
-      type: boolean,
+      type: Boolean,
       default: false,
     },
     isAdmin: {
-      type: boolean,
+      type: Boolean,
       default: false,
     },
   },

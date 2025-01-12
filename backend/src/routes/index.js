@@ -8,6 +8,6 @@ const router = require("express").Router();
 // -------------------------
 
 // URL
-router.use("/user", require("./user"));
+router.use("/users", require("./user"));
 
 module.exports = router;
