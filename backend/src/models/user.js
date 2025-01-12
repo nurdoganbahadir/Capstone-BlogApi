@@ -18,6 +18,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       trim: true,
       required: true,
+      set: (password) => passwordEncrypt(password),
     },
     email: {
       type: String,
@@ -56,7 +57,6 @@ const UserSchema = new mongoose.Schema(
 );
 
 UserSchema.pre(["save", "updateOne"], function (next) {
-
   const data = this?._update ?? this;
 
   // Email Validation:
@@ -67,21 +67,6 @@ UserSchema.pre(["save", "updateOne"], function (next) {
   if (!isEmailValidated) {
     next(new Error("Email is not validated"));
   }
-
-  const isPasswordValidated = data.password
-    ? /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.]).{8,}$/.test(
-        data.password
-      )
-    : true;
-
-  if (!isPasswordValidated)
-    next(
-      new Error(
-        "Password must be at least 8 characters long and contain at least one special character and  at least one uppercase character."
-      )
-    );
-
-  if (data.password) data.password = passwordEncrypt(data.password);
 
   next();
 });

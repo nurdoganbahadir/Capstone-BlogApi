@@ -5,6 +5,8 @@
 
 // REQUIRE
 const User = require("../models/user");
+const Token = require("../models/token");
+const passwordEncrypt = require("../helpers/passwordEncrypt");
 
 module.exports = {
   login: async (req, res) => {
@@ -27,6 +29,9 @@ module.exports = {
 
     if (username && password) {
       const user = await User.findOne({ username, password });
+      console.log(user);
+      console.log(password);
+      
       if (user && user.isActive) {
         let tokenData = await Token.findOne({ userId: user._id });
 
