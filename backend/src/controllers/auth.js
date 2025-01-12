@@ -29,9 +29,7 @@ module.exports = {
 
     if (username && password) {
       const user = await User.findOne({ username, password });
-      console.log(user);
-      console.log(password);
-      
+
       if (user && user.isActive) {
         let tokenData = await Token.findOne({ userId: user._id });
 
@@ -66,14 +64,14 @@ module.exports = {
     const tokenKey = auth ? auth.split(" ") : null;
 
     if (tokenKey && tokenKey[0] === "Token") {
-      data = await Token.deleteOne({ token: tokenKey[1] });
-      message = "Token Deleted. Logout is success.";
-    }
+      const data = await Token.deleteOne({ token: tokenKey[1] });
+      const message = "Token Deleted. Logout is success.";
 
-    res.send({
-      error: false,
-      message,
-      data,
-    });
+      res.status(200).send({
+        error: false,
+        message,
+        data,
+      });
+    }
   },
 };
