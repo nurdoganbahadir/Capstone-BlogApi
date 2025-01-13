@@ -4,6 +4,7 @@
 // -------------------------
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 // ENV
 require("dotenv").config();
@@ -21,6 +22,12 @@ app.use(require("./src/middlewares/queryHandler"));
 
 // Middlewares:
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 app.use(require("./src/middlewares/authentication"));
 
