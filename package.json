@@ -2,9 +2,10 @@
   "name": "fullstack-project-capstoneblogapi",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"npm run start:backend\"",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "start:backend": "npm --prefix backend start",
-    "install:all": "npm install && npm --prefix backend install"
+    "start:frontend": "npm --prefix frontend start",
+    "install:all": "npm install && npm --prefix backend install && npm --prefix frontend install"
   },
   "devDependencies": {
     "concurrently": "^8.2.0"
