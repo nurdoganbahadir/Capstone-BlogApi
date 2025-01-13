@@ -8,7 +8,7 @@ const { mongoose } = require("../configs/dbConnection");
 const BlogSchema = new mongoose.Schema(
   {
     userId: {
-      type: mongoose.Schema.Stypes.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
       unique: true,
@@ -16,7 +16,7 @@ const BlogSchema = new mongoose.Schema(
     },
 
     categoryId: {
-      type: mongoose.Schema.Stypes.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Category",
       required: true,
     },
@@ -46,7 +46,7 @@ const BlogSchema = new mongoose.Schema(
     },
 
     likes: [String],
-    
+
     countOfVisitors: {
       type: Number,
       default: 0,
