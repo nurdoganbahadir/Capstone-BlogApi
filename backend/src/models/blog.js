@@ -8,15 +8,13 @@ const { mongoose } = require("../configs/dbConnection");
 const BlogSchema = new mongoose.Schema(
   {
     userId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: "User",
       required: true,
-      unique: true,
-      index: true,
     },
 
     categoryId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: "Category",
       required: true,
     },
