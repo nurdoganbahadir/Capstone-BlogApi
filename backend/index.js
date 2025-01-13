@@ -22,6 +22,8 @@ app.use(require("./src/middlewares/queryHandler"));
 // Middlewares:
 app.use(express.json());
 
+app.use(require("./src/middlewares/authentication"));
+
 // Home Paths:
 app.all("/", (req, res) => {
   res.send({

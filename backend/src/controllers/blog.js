@@ -11,12 +11,16 @@ module.exports = {
 
     res.status(200).send({
       error: false,
+      count: data.length,
       details: await res.getModelListDetails(Blog),
       data,
     });
   },
 
   create: async (req, res) => {
+
+    req.body.userId = req.user._id;
+
     const data = await Blog.create(req.body);
 
     res.status(201).send({
