@@ -43,7 +43,11 @@ const BlogSchema = new mongoose.Schema(
       default: false,
     },
 
-    likes: [String],
+    likes: [
+      {
+        username: String,
+      },
+    ],
 
     countOfVisitors: {
       type: Number,
