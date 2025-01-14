@@ -56,8 +56,8 @@ const useApiRequests = () => {
       await axios(`${process.env.REACT_APP_BASE_URL}/auth/logout/`, {
         headers: { Authorization: `Token ${token}` },
       });
+      toastSuccessNotify("Logout. OK.");
       dispatch(logoutSuccess());
-      navigate("/blogs");
     } catch (error) {
       dispatch(fetchFail());
     }
