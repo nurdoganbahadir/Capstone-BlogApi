@@ -10,9 +10,30 @@ function Home() {
     getBlog("blogs");
   }, []);
 
-  console.log(blog);
-
-  return <div>sdgasdgsdg</div>;
+  return (
+    <section>
+      <div className="my-12 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {blog?.map((items) => (
+          <article
+            className="max-w-md w-[350px] mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm"
+            key={items._id}
+          >
+            <a>
+              <img
+                src={items.image}
+                loading="lazy"
+                alt={items.title}
+                className="w-full h-48 rounded-t-md"
+              />
+              <div className="flex justify-between items-center mt-2 pt-3 ml-4 mr-2">
+                <p>{items.content}</p>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export default Home;
