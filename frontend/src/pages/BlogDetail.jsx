@@ -21,10 +21,16 @@ function BlogDetail() {
       ) : !blog ? (
         <p>Blog not found</p>
       ) : (
-        <div>
-          <img src={blog.image} alt={blog.title} />
-          <h1>{blog.title}</h1>
-          <p>{blog.content}</p>
+        <div className="max-w-4xl mx-auto my-8 p-4 bg-white shadow-lg rounded-lg">
+          <img
+            src={blog.image}
+            alt={blog.title}
+            className="w-full h-64 object-cover rounded-t-lg"
+          />
+          <div className="p-4">
+            <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
+            <p className="text-gray-700 leading-relaxed">{blog.content}</p>
+          </div>
         </div>
       )}
     </>
