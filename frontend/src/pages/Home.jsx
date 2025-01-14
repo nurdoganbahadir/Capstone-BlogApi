@@ -11,24 +11,32 @@ function Home() {
   }, []);
 
   return (
-    <section>
-      <div className="my-12 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+    <section className="my-12 mx-auto max-w-[1440px] px-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {blog?.map((items) => (
           <article
-            className="max-w-md w-[350px] mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm"
+            className="max-w-md mx-auto shadow-lg border rounded-md duration-300 hover:shadow-sm"
             key={items._id}
           >
-            <a>
+            <div>
               <img
                 src={items.image}
                 loading="lazy"
                 alt={items.title}
-                className="w-full h-48 rounded-t-md"
+                className="w-full h-48 rounded-t-md object-cover"
               />
-              <div className="flex justify-between items-center mt-2 pt-3 ml-4 mr-2">
-                <p>{items.content}<a href={`/blogs/${items._id}`}> ...Read More</a></p>
+              <div className="p-4">
+                <h1 className="font-bold">{items.title}</h1>
+                <p className="line-clamp-3">{items.content}</p>
+                <a
+                  href={`/blogs/${items._id}`}
+                  className="text-blue-400 hover:underline"
+                >
+                  {" "}
+                  ...Read More
+                </a>
               </div>
-            </a>
+            </div>
           </article>
         ))}
       </div>
