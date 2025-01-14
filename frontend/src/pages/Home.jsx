@@ -26,7 +26,7 @@ function Home() {
                 className="w-full h-48 rounded-t-md"
               />
               <div className="flex justify-between items-center mt-2 pt-3 ml-4 mr-2">
-                <p>{items.content}</p>
+                <p>{items.content}<a href={`/blogs/${items._id}`}> ...Read More</a></p>
               </div>
             </a>
           </article>
