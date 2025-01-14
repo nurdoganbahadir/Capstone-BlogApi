@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
-        <a href="/" className="flex items-center">
+        <a href="/blogs" className="flex items-center">
           <img
             src="https://flowbite.com/docs/images/logo.svg"
             className="h-8"

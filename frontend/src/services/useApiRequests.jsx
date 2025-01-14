@@ -34,15 +34,19 @@ const useApiRequests = () => {
 
   const register = async (userInfo) => {
     dispatch(fetchStart());
+    console.log(userInfo);
     try {
       const { data } = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/users/`,
+        `${process.env.REACT_APP_BASE_URL}/users`,
         userInfo
       );
+      console.log(data);
       dispatch(registerSuccess(data));
-      navigate("/stock");
+      toastSuccessNotify("The register process is successful.");
+      navigate("/blogs");
     } catch (error) {
       dispatch(fetchFail());
+      console.log(error);
     }
   };
 
@@ -53,7 +57,7 @@ const useApiRequests = () => {
         headers: { Authorization: `Token ${token}` },
       });
       dispatch(logoutSuccess());
-      navigate("/home");
+      navigate("/blogs");
     } catch (error) {
       dispatch(fetchFail());
     }

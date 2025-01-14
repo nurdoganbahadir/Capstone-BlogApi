@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useApiRequests from "../services/useApiRequests";
-import { useNavigate } from "react-router-dom";
+
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -38,7 +38,7 @@ function Login() {
           />
         </div>
         <button className="bg-blue-400 h-[44px] font-serif text-label uppercase hover:opacity-90 rounded-[4px] ">
-          Sign In
+          Login
         </button>
         <div className="flex justify-center items-center flex-wrap">
           <span className="text-label font-montserrat font-[500] text-labelColor ">
@@ -47,6 +47,9 @@ function Login() {
           <span className="text-main text-[14px] font-montserrat font-[500] underline ml-1">
             Reset password
           </span>
+          <a href="/users" className="text-main text-[14px] font-montserrat font-[500] underline ml-1">
+            Register
+          </a>
         </div>
       </form>
     </div>
