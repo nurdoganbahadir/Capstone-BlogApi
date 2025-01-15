@@ -16,6 +16,7 @@ const useBlogRequests = () => {
       dispatch(fetchFail());
     }
   };
+
   const postBlog = async (path, values) => {
     dispatch(fetchStart());
     try {
@@ -27,6 +28,7 @@ const useBlogRequests = () => {
       toastErrorNotify("Insertion failed.");
     }
   };
+
   const deleteBlog = async (path, id) => {
     dispatch(fetchStart());
     try {
@@ -51,7 +53,18 @@ const useBlogRequests = () => {
     }
   };
 
-  return { getBlog, postBlog, deleteBlog, updateBlog };
+  const postLike = async (path, values) => {
+    dispatch(fetchStart());
+    try {
+      await axiosToken.post(path, values);
+      toastSuccessNotify("The Like was successful.");
+    } catch (error) {
+      dispatch(fetchFail());
+      toastErrorNotify("Insertion failed.");
+    }
+  };
+
+  return { getBlog, postBlog, deleteBlog, updateBlog, postLike };
 };
 
 export default useBlogRequests;

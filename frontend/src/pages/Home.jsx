@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useBlogRequests from "../services/useBlogRequests";
-import { FaHeart } from "react-icons/fa";
+import BlogLikes from "../components/BlogLikes";
 
 function Home() {
   const { blog } = useSelector((state) => state.blog);
-  const { getBlog } = useBlogRequests();
+  
+  const { getBlog, postLike } = useBlogRequests();
 
   useEffect(() => {
     getBlog("blogs");
@@ -38,9 +39,7 @@ function Home() {
                 </a>
               </div>
             </div>
-            <button>
-              <FaHeart className="text-red-600"/>
-            </button>
+            <BlogLikes items={items} />
           </article>
         ))}
       </div>
