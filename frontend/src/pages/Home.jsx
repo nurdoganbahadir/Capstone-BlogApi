@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useBlogRequests from "../services/useBlogRequests";
+import { FaHeart } from "react-icons/fa";
 
 function Home() {
   const { blog } = useSelector((state) => state.blog);
@@ -37,6 +38,9 @@ function Home() {
                 </a>
               </div>
             </div>
+            <button>
+              <FaHeart className="text-red-600"/>
+            </button>
           </article>
         ))}
       </div>
