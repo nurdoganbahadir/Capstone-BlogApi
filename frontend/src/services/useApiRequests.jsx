@@ -24,6 +24,7 @@ const useApiRequests = () => {
       );
       toastSuccessNotify("The login process is successful.");
       dispatch(loginSuccess(data));
+      console.log(data);
       navigate("/blogs");
     } catch (error) {
       toastErrorNotify("Login failed. Please try again.");

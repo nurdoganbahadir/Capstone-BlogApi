@@ -6,9 +6,11 @@ const authSlice = createSlice({
   initialState: {
     token: "",
     username: "",
+    userId: "",
     loading: "",
     error: "",
   },
+
   reducers: {
     fetchStart: (state) => {
       state.loading = true;
@@ -16,6 +18,7 @@ const authSlice = createSlice({
     loginSuccess: (state, { payload }) => {
       state.token = payload.token;
       state.username = payload.user.username;
+      state.userId = payload.user._id;
       state.loading = false;
     },
     registerSuccess: (state, { payload }) => {
