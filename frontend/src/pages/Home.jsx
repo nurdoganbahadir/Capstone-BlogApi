@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import useBlogRequests from "../services/useBlogRequests";
 import BlogLikes from "../components/BlogLikes";
 
 function Home() {
   const { blog } = useSelector((state) => state.blog);
-  
-  const { getBlog, postLike } = useBlogRequests();
+  const [publishPost, setPublishPost] = useState([]);
+  const { getBlog } = useBlogRequests();
+
+  useEffect(() => {
+    const unpublishedBlogs = blog.filter((item) => item.isPublished === false);
+    setPublishPost(unpublishedBlogs);
+  }, [blog]);
 
   useEffect(() => {
     getBlog("blogs");
@@ -15,23 +20,23 @@ function Home() {
   return (
     <section className="my-12 mx-auto max-w-[1440px] px-4">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {blog?.map((items) => (
+        {publishPost?.map((item) => (
           <article
             className="max-w-md mx-auto shadow-lg border rounded-md duration-300 hover:shadow-sm"
-            key={items._id}
+            key={item._id}
           >
             <div>
               <img
-                src={items.image}
+                src={item.image}
                 loading="lazy"
-                alt={items.title}
+                alt={item.title}
                 className="w-full h-48 rounded-t-md object-cover"
               />
               <div className="p-4">
-                <h1 className="font-bold">{items.title}</h1>
-                <p className="line-clamp-3">{items.content}</p>
+                <h1 className="font-bold">{item.title}</h1>
+                <p className="line-clamp-3">{item.content}</p>
                 <a
-                  href={`/blogs/${items._id}`}
+                  href={`/blogs/${item._id}`}
                   className="text-blue-400 hover:underline"
                 >
                   {" "}
@@ -39,7 +44,7 @@ function Home() {
                 </a>
               </div>
             </div>
-            <BlogLikes items={items} />
+            <BlogLikes item={item} />
           </article>
         ))}
       </div>
