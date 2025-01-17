@@ -2,6 +2,16 @@ import React from "react";
 import BlogLikes from "./BlogLikes";
 
 function BlogCard({ item }) {
+
+  const formatDateTime = (dateString) => {
+    const dateOptions = { year: "numeric", month: "long", day: "numeric" };
+    const timeOptions = { hour: "2-digit", minute: "2-digit" };
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleDateString(undefined, dateOptions);
+    const formattedTime = date.toLocaleTimeString(undefined, timeOptions);
+    return `${formattedDate} ${formattedTime}`;
+  };
+
   return (
     <div className="w-full my-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div id="defaultTabContent">
@@ -11,9 +21,13 @@ function BlogCard({ item }) {
           role="tabpanel"
           ariaLabelledby="about-tab"
         >
-          <h2 className="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            {item.title}
-          </h2>
+          <div className="flex justify-between">
+            <h2 className="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              {item.title}
+            </h2>
+            <p className="text-gray-600">{formatDateTime(item.createdAt)}</p>
+          </div>
+
           <p className="mb-3 text-gray-500 dark:text-gray-400">
             {item.content}
           </p>
