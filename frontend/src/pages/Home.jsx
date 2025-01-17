@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import useBlogRequests from "../services/useBlogRequests";
-import BlogLikes from "../components/BlogLikes";
 import BlogCard from "../components/BlogCard";
 
 function Home() {
