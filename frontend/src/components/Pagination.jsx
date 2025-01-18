@@ -1,9 +1,7 @@
 import React from "react";
 
-function Pagination({ details, setCurrentPage }) {
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+function Pagination({ details }) {
+
 
   return (
     <>
@@ -12,7 +10,6 @@ function Pagination({ details, setCurrentPage }) {
           <li>
             <a
               href={`/blogs?page=${details?.pages?.previous}`}
-              onClick={() => handlePageChange(details?.pages?.previous)}
               className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700"
             >
               <span className="sr-only">Previous</span>
@@ -38,7 +35,6 @@ function Pagination({ details, setCurrentPage }) {
             <li key={index}>
               <a
                 href={`/blogs?page=${page}`}
-                onClick={() => handlePageChange(page)}
                 className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
               >
                 {page}
@@ -49,7 +45,6 @@ function Pagination({ details, setCurrentPage }) {
           <li>
             <a
               href={`/blogs?page=${details?.pages?.next}`}
-              onClick={() => handlePageChange(details?.pages?.next)}
               className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700"
             >
               <span className="sr-only">Next</span>
