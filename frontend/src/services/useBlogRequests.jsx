@@ -11,7 +11,7 @@ const useBlogRequests = () => {
     dispatch(fetchStart());
     try {
       const { data } = await axiosPublic.get(path);
-      dispatch(getBlogSuccess({ data: data.data, path }));
+      dispatch(getBlogSuccess({ data: data, path }));
     } catch (error) {
       dispatch(fetchFail());
     }
