@@ -24,9 +24,9 @@ function BlogLikes({ item }) {
   return (
     <div className="flex">
       <button className="m-2" onClick={handleLike}>
-        <FaHeart className={"" + (isLike ? "text-red-600" : "")} />
+        <FaHeart className={"" + (isLike ? "text-red-600" : "text-white")} />
       </button>
-      <p className="m-1">{like}</p>
+      <p className="m-1 text-white">{like}</p>
     </div>
   );
 }
