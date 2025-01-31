@@ -13,7 +13,7 @@ function BlogCard({ item }) {
   };
 
   return (
-    <div className="w-full my-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="w-full my-2 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
       <div id="defaultTabContent">
         <div
           className="p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800"

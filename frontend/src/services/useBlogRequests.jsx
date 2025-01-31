@@ -2,10 +2,12 @@ import { useDispatch } from "react-redux";
 import { fetchFail, fetchStart, getBlogSuccess } from "../features/blogSlice";
 import useAxios from "./useAxios";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
+import { useNavigate } from "react-router-dom";
 
 const useBlogRequests = () => {
   const { axiosPublic, axiosToken } = useAxios();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const getBlog = async (path) => {
     dispatch(fetchStart());
@@ -34,6 +36,7 @@ const useBlogRequests = () => {
     try {
       await axiosToken.delete(`${path}/${id}`);
       getBlog(path);
+      navigate(-1);
       toastSuccessNotify("The deletion was successful.");
     } catch (error) {
       dispatch(fetchFail());
