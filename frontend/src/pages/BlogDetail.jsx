@@ -8,7 +8,7 @@ function BlogDetail() {
   const params = useParams();
   const { blog, loading, error } = useSelector((state) => state.blog);
   const userId = useSelector((state) => state.auth.userId);
-  const { getBlog, deleteBlog } = useBlogRequests();
+  const { getBlog, deleteBlog, updateBlog } = useBlogRequests();
   const userBtn = userId === blog?.userId;
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function BlogDetail() {
             <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
             <p className="text-gray-700 leading-relaxed">{blog.content}</p>
           </div>
-          {userBtn && <Buttons deleteBlog={deleteBlog} />}
+          {userBtn && <Buttons deleteBlog={deleteBlog} updateBlog={updateBlog} blog={blog} />}
         </div>
       )}
     </>

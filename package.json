@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.0"
+  },
+  "dependencies": {
+    "flowbite-react": "^0.10.2"
   }
 }
