@@ -1,5 +1,5 @@
 "use client";
-import { Form, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 function Buttons({ deleteBlog, updateBlog, blog }) {
@@ -15,7 +15,6 @@ function Buttons({ deleteBlog, updateBlog, blog }) {
       title: title,
       content: content,
     };
-    console.log(data);
     updateBlog("blogs", data).then(() => {
       window.location.reload();
     });

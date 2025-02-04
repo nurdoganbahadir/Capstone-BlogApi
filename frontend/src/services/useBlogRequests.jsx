@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { fetchFail, fetchStart, getBlogSuccess } from "../features/blogSlice";
+import { fetchFail, fetchStart, getBlogSuccess, getCategoriesSuccess } from "../features/blogSlice";
 import useAxios from "./useAxios";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import { useNavigate } from "react-router-dom";
@@ -67,7 +67,17 @@ const useBlogRequests = () => {
     }
   };
 
-  return { getBlog, postBlog, deleteBlog, updateBlog, postLike };
+  const getCategories = async (path) => {
+    dispatch(fetchStart());
+    try {
+      const { data } = await axiosPublic.get(path);
+      dispatch(getCategoriesSuccess({ data: data, path }));
+    } catch (error) {
+      dispatch(fetchFail());
+    }
+  };
+
+  return { getBlog, postBlog, deleteBlog, updateBlog, postLike, getCategories };
 };
 
 export default useBlogRequests;

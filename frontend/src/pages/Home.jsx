@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import useBlogRequests from "../services/useBlogRequests";
 import BlogCard from "../components/BlogCard";
 import Pagination from "../components/Pagination";
 
 function Home() {
-  const { blog, details } = useSelector((state) => state.blog);
+  const { categories, blog, details } = useSelector((state) => state.blog);
   const [publishPost, setPublishPost] = useState([]);
-  const { getBlog } = useBlogRequests();
+  const { getBlog, getCategories } = useBlogRequests();
   const [searchParams] = useSearchParams();
   const page = searchParams.get("page");
 
+  console.log(categories);
+
   useEffect(() => {
     getBlog(`blogs?page=${page}`);
+    getCategories("categories");
   }, []);
 
   useEffect(() => {
