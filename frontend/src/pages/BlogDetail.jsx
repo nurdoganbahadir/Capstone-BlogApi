@@ -3,6 +3,7 @@ import useBlogRequests from "../services/useBlogRequests";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Buttons from "../components/Buttons";
+import Skeleton from "../components/Skeleton";
 
 function BlogDetail() {
   const params = useParams();
@@ -18,7 +19,7 @@ function BlogDetail() {
   return (
     <>
       {loading ? (
-        <p>Loading...</p>
+        <Skeleton />
       ) : error ? (
         <p>Error: {error}</p>
       ) : !blog ? (
