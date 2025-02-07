@@ -12,16 +12,18 @@ function Home() {
   const { getBlog, getCategories } = useBlogRequests();
   const [searchParams] = useSearchParams();
   const page = searchParams.get("page");
-  const filter = searchParams.get("filter");
-  console.log(categories);
+  const [category, setCategory] = useState("");
+
+  console.log(category);
+
   useEffect(() => {
     let query = `blogs?page=${page}`;
-    if (filter) {
-      query += `&filter=${filter}`;
+    if (category) {
+      query = `blogs?page=${1}&filter[categoryId]=${category}`;
     }
     getBlog(query);
     getCategories("categories");
-  }, [page, filter]);
+  }, [page, category]);
 
   useEffect(() => {
     const unpublishedBlogs = blog.filter((item) => item.isPublished === false);
@@ -30,7 +32,7 @@ function Home() {
 
   return (
     <>
-      <Categories categories={categories} />
+      <Categories categories={categories} setCategory={setCategory} />
       <section className="mx-auto max-w-[1440px]">
         {publishPost?.map((item) => (
           <BlogCard key={item._id} item={item} />
