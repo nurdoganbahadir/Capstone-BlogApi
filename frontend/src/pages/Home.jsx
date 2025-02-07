@@ -14,8 +14,6 @@ function Home() {
   const page = searchParams.get("page");
   const [category, setCategory] = useState("");
 
-  console.log(category);
-
   useEffect(() => {
     let query = `blogs?page=${page}`;
     if (category) {
