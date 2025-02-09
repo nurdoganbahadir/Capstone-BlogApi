@@ -38,7 +38,6 @@ function Pagination({ details }) {
                 </a>
               </li>
             ))}
-
             <li>
               <a
                 href={`/blogs?page=${details?.pages?.next}`}

@@ -44,7 +44,7 @@ const useApiRequests = () => {
       console.log(data);
       dispatch(registerSuccess(data));
       toastSuccessNotify("The register process is successful.");
-      navigate("/blogs");
+      navigate("/login");
     } catch (error) {
       dispatch(fetchFail());
       console.log(error);

@@ -30,7 +30,7 @@ module.exports = {
 
   read: async (req, res) => {
     const data = await Blog.findOne({ _id: req.params.id });
-
+    data.countOfVisitors += 1;
     res.status(200).send({
       error: false,
       data,

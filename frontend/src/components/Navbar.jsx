@@ -17,11 +17,6 @@ const Navbar = () => {
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <a href="/blogs" className="flex items-center">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8"
-            alt="Capstone Blog Api"
-          />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Capstone Blog Api
           </span>
@@ -35,7 +30,7 @@ const Navbar = () => {
           onClick={toggleMenu}
         >
           <span className="sr-only">Open main menu</span>
-          {/* Icon for the button */}
+
           <svg
             className="w-6 h-6"
             fill="none"
