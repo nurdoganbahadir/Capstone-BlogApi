@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Buttons from "../components/Buttons";
 import Skeleton from "../components/Skeleton";
-import BlogLikes from "../components/BlogLikes";
+
 
 function BlogDetail() {
   const params = useParams();

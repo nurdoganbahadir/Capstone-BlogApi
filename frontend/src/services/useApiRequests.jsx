@@ -59,6 +59,7 @@ const useApiRequests = () => {
       });
       toastSuccessNotify("Logout. OK.");
       dispatch(logoutSuccess());
+      navigate("/auth/login");
     } catch (error) {
       dispatch(fetchFail());
     }
