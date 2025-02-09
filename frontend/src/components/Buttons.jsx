@@ -7,6 +7,9 @@ function Buttons({ deleteBlog, updateBlog, blog }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [title, setTitle] = useState(blog.title);
   const [content, setContent] = useState(blog.content);
+  const [image, setImage] = useState(blog.image);
+  const [isPublished, setIsPublished] = useState(blog.isPublished);
+  console.log("isPublished", isPublished);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +17,8 @@ function Buttons({ deleteBlog, updateBlog, blog }) {
       _id: id,
       title: title,
       content: content,
+      image: image,
+      isPublished: isPublished,
     };
     updateBlog("blogs", data).then(() => {
       window.location.reload();
@@ -106,6 +111,41 @@ function Buttons({ deleteBlog, updateBlog, blog }) {
                       required
                       onChange={(e) => setContent(e.target.value)}
                     />
+                  </div>
+                  <div>
+                    <label
+                      for="image"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Image
+                    </label>
+                    <input
+                      type="text"
+                      name="image"
+                      id="image"
+                      value={image}
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                      placeholder="Enter blog image"
+                      required
+                      onChange={(e) => setImage(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="isPublished"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Publish
+                    </label>
+                    <select
+                      id="isPublished"
+                      value={isPublished}
+                      onChange={(e) => setIsPublished(e.target.value)}
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    >
+                      <option value={true}>Yes</option>
+                      <option value={false}>No</option>
+                    </select>
                   </div>
                   <button
                     type="submit"
